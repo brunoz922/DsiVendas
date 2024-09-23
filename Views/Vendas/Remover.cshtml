@@ -1,0 +1,42 @@
+@model DsiVendas.Models.Venda
+
+<h1 class="my-4">Excluir Venda</h1>
+<div>
+    <h4>Deseja mesmo excluir a seguinte venda: </h4>
+    <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Data da Venda</th>
+      <th scope="col">Forma de Pagamento</th>
+      <th scope="col">Total</th>
+      <th scope="col">Itens da Venda</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">@Model.Id</td>
+            <td>@Model.Cliente.Nome</td>
+            <td>@Model.DataVenda.ToShortDateString()</td>
+            <td>@Model.FormaPagamento</td>
+            <td>@Model.Total</td>
+            <td>
+          @foreach (var item in @Model.ItensVenda)
+          { 
+            @item.Produto?.Nome
+            <br/>
+          }
+        </td>
+
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div>
+    <form asp-action="Remover" method="post">
+    <button type="submit"  class="btn btn-primary">Confirmar Exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Voltar</a>
+    </form>
+</div>

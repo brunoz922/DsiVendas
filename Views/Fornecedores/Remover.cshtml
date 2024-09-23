@@ -1,0 +1,30 @@
+@model DsiVendas.Models.Fornecedor
+
+<h1 class="my-4">Excluir Fornecedor</h1>
+<div>
+    <h4>Deseja mesmo excluir o seguinte fornecedor: </h4>
+    <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Telefone</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row">@Model.Id</td>
+            <td>@Model.Nome</td>
+            <td>@Model.Cidade</td>
+            <td>@Model.Telefone</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div>
+    <form asp-action="Remover" method="post">
+    <button type="submit"  class="btn btn-primary">Confirmar Exclusão</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Voltar</a>
+    </form>
+</div>
